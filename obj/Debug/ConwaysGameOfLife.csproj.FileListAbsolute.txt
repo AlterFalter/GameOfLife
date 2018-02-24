@@ -1,0 +1,13 @@
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe.config
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\bin\Debug\GameOfLife.pdb
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\obj\Debug\GameOfLife.exe
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\obj\Debug\GameOfLife.pdb
+D:\YannisKraemer\Other\GameOfLife\GameOfLife\obj\Debug\ConwaysGameOfLife.csprojResolveAssemblyReference.cache
+D:\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe.config
+D:\GameOfLife\GameOfLife\bin\Debug\GameOfLife.exe
+D:\GameOfLife\GameOfLife\bin\Debug\GameOfLife.pdb
+D:\GameOfLife\GameOfLife\obj\Debug\ConwaysGameOfLife.csprojResolveAssemblyReference.cache
+D:\GameOfLife\GameOfLife\obj\Debug\ConwaysGameOfLife.csproj.CoreCompileInputs.cache
+D:\GameOfLife\GameOfLife\obj\Debug\GameOfLife.exe
+D:\GameOfLife\GameOfLife\obj\Debug\GameOfLife.pdb
