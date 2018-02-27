@@ -1,0 +1,21 @@
+
+Copyright (c) 2018 Yannis Krämer
+
+Before using this project (also older versions of it), you need to check for an updated license. The creator is allowed to change the license at every time he wants.
+You have the permission for private use of this project, to modify this project and/or distributing a link to the source from the original creator.
+For everything you do or is in anyway related to this project, you are yourself liable for it. The creator doesn't take responsibility for any others in any way.
+There is no warranty at all that anything specified in this project works or is right in any way.
+
+You have no permission for commercial use of this project (also with massive changes from yourself) without asking the original creator of this project.
+Also, you're not allowed to patent your work if it's based on this project without contacting the original creator of this project.
+If you want to upload/distribute a modified version of this project, you have to link the original source in an obvious place, 
+that shows it's based on the work of the original creator.
+You're not allowed to upload/distribute the unmodified project yourself, this has to happen over the original source.
+
+If the original source isn't available anymore, you have to contact the original creator.
+If you tried everything in your power possible to contact and every attempt fails, you have to still show the link and the name of the creator obviously to everyone.
+Commercial use will still be prohibited. 
+If the original creator dies, then only the next relatives are allowed to give the permissions. By commercial use, you need to pay the relatives in a fair way.
+
+If anything is unspecified in this license, you have to assume, it's prohibited without asking for permission from the original creator.
+If anything is unclear, contact the original creator.
