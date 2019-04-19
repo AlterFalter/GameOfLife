@@ -1,9 +1,0 @@
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\GameOfLifeTest.dll
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\GameOfLifeTest.pdb
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\GameOfLife.exe
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.dll
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\GameOfLife.pdb
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\bin\Debug\Microsoft.VisualStudio.QualityTools.UnitTestFramework.xml
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\obj\Debug\ConwaysGameOfLifeTest.csprojResolveAssemblyReference.cache
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\obj\Debug\GameOfLifeTest.dll
-D:\YannisKraemer\Other\GameOfLife\GameOfLifeTest\obj\Debug\GameOfLifeTest.pdb
