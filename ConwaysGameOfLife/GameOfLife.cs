@@ -1,4 +1,5 @@
 ﻿using System;
+using System.Collections.Generic;
 using System.Linq;
 using System.Threading;
 
@@ -8,16 +9,26 @@ namespace ConwaysGameOfLife
     {
         public int AmountRows { get; set; }
         public int AmountColumns { get; set; }
+        public bool Endless { get; set; }
         public bool[][] CurrentPitch { get; set; }
         public bool[][] FuturePitch { get; set; }
         public LifeRules[] ActualLifeRules { get; set; }
+        public List<bool[][]> AllGameStates { get; set; }
 
-        public GameOfLife(int amountColumns = 80, int amountRows = 40)
+        public GameOfLife(int amountColumns = 80, int amountRows = 40, bool endless = false)
         {
             AmountColumns = amountColumns;
             AmountRows = amountRows;
+            Endless = endless;
+            if (Endless)
+            {
+                AmountColumns += 2;
+                AmountRows += 2;
+            }
             CurrentPitch = new bool[AmountRows][];
             FuturePitch = new bool[AmountRows][];
+            AllGameStates = new List<bool[][]>();
+
             for (int y = 0; y < AmountRows; y++)
             {
                 CurrentPitch[y] = new bool[AmountColumns];
@@ -33,7 +44,7 @@ namespace ConwaysGameOfLife
             ActualLifeRules = new LifeRules[9];
             ActualLifeRules[0] = LifeRules.Die;
             ActualLifeRules[1] = LifeRules.Die;
-            ActualLifeRules[2] = LifeRules.EmergesLifeOrLifesOn;
+            ActualLifeRules[2] = LifeRules.LifesOn;
             ActualLifeRules[3] = LifeRules.EmergesLifeOrLifesOn;
             ActualLifeRules[4] = LifeRules.Die;
             ActualLifeRules[5] = LifeRules.Die;
@@ -44,7 +55,6 @@ namespace ConwaysGameOfLife
 
         public int Start()
         {
-            //CreateVerticalBlinker(20, 20);
             int generation = 0;
 
             while (HasStillLifeOnPitch())
@@ -64,16 +74,17 @@ namespace ConwaysGameOfLife
                 Console.Clear();
                 Console.Write(pitch);
                 Console.Write(generation++);
-
-                for (int y = 0; y < AmountRows; y++)
+                if (!AllGameStates.Any(s => s.SequenceEqual(CurrentPitch)))
                 {
-                    for (int x = 0; x < AmountColumns; x++)
-                    {
-                        SetLife(x, y, IsFutureAlive(x, y));
-                    }
+                    AllGameStates.Add(CurrentPitch);
                 }
+                else
+                {
+                    return generation;
+                }
+                Thread.Sleep(25);
 
-                Thread.Sleep(50);
+                FuturePitch.CopyTo(CurrentPitch, 0);
             }
 
             return generation;
@@ -96,13 +107,37 @@ namespace ConwaysGameOfLife
                 BoolToInt(IsNeighbourAlive(x, y, 0, 1)) +
                 BoolToInt(IsNeighbourAlive(x, y, 1, 1));
 
-            return (ActualLifeRules[amountLivingNeighbours] == LifeRules.EmergesLifeOrLifesOn);
+            bool oldValue = IsAlive(x, y);
+
+            if (ActualLifeRules[amountLivingNeighbours] == LifeRules.LifesOn)
+            {
+                return oldValue;
+            }
+            else if (ActualLifeRules[amountLivingNeighbours] == LifeRules.EmergesLifeOrLifesOn)
+            {
+                return true;
+            }
+            else
+            {
+                return false;
+            }
         }
 
         public bool IsNeighbourAlive(int x, int y, int xDifference, int yDifference)
         {
             int xEndPosition = x + xDifference;
             int yEndPosition = y + yDifference;
+
+            if (Endless &&
+                (xEndPosition == 0 ||
+                 xEndPosition == AmountColumns - 1 ||
+                 yEndPosition == 0 ||
+                 yEndPosition == AmountRows - 1))
+            {
+                return false;
+            }
+
+            //////////////////////
             bool isOutOfField = (xEndPosition < 0 || xEndPosition >= AmountColumns) || (yEndPosition < 0 || yEndPosition >= AmountRows);
             return (!isOutOfField && IsAlive(xEndPosition, yEndPosition));
         }

@@ -2,6 +2,7 @@
 {
     public enum LifeRules
     {
+        LifesOn,
         EmergesLifeOrLifesOn,
         Die
     }

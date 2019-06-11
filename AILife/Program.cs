@@ -9,17 +9,19 @@ namespace AILife
         static void Main(string[] args)
         {
             Random random = new Random();
-            GameOfLife game = new GameOfLife();
 
-            GeneticAlgorithm<bool> gen = new GeneticAlgorithm<bool>(200, 3*3, random, RandomBool, 8,
+            GeneticAlgorithm<bool> gen = new GeneticAlgorithm<bool>(200, 7*7, random, RandomBool, 8,
                 ParentSelector<bool>.SelectParentByRank, CalculateGenerations);
 
             for (int i = 0; i < 50; i++)
             {
                 gen.NewGeneration();
+                Console.WriteLine($"\nGeneration: {i+1} - {gen.BestFitness}");
+                Console.ReadKey();
             }
 
-            var a = gen.BestGenes;
+            GameOfLife game = PrepareGame(gen.BestGenes, 35, 15);
+            game.Start();
         }
 
         static double CalculateGenerations(bool[] field)
@@ -32,7 +34,7 @@ namespace AILife
 
         static GameOfLife PrepareGame(bool[] field, int xPosition, int yPosition, int worldSizeX = 40, int worldSizeY = 80)
         {
-            GameOfLife game = new GameOfLife();
+            GameOfLife game = new GameOfLife(endless:true);
 
             int size = (int)Math.Sqrt((double)field.Length);
 
@@ -42,7 +44,7 @@ namespace AILife
                 {
                     int newX = xPosition + currentX;
                     int newY = yPosition + currentY;
-                    game.SetLife(newX, newY, field[size * currentY]);
+                    game.SetLife(newX, newY, field[size * currentY + currentX]);
                 }
             }
 
